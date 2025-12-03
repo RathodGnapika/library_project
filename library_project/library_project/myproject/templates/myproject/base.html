@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library Portal</title>
+
+    {% load static %}
+
+    <!-- Correct CSS Path -->
+    <link rel="stylesheet" href="{% static 'myproject/css/styles.css' %}">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">Library Portal</span>
+            </div>
+
+            <nav>
+                <a href="/dashboard/">Dashboard</a>
+                <a href="/books/">Books</a>
+            </nav>
+        </header>
+
+        <div class="main-layout">
+            <!-- LEFT side: Your actual content -->
+            <div class="card">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <!-- RIGHT side: Animated bookshelf -->
+            <div class="card book-anim-card">
+                <div class="title">Welcome Reader ✨</div>
+                <div class="subtitle">Borrow, explore and discover new stories.</div>
+
+                <div class="bookshelf">
+                    <div class="shelf">
+                        <div class="book"></div>
+                        <div class="book"></div>
+                        <div class="book"></div>
+                        <div class="book"></div>
+                        <div class="book"></div>
+                    </div>
+                    <div class="shelf">
+                        <div class="book"></div>
+                        <div class="book"></div>
+                        <div class="book"></div>
+                        <div class="book"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+

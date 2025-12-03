@@ -1,0 +1,20 @@
+{% extends "portal/base.html" %}
+
+{% block content %}
+<h1>Welcome, {{ student.username }} 👋</h1>
+
+<h3>Your Borrowed Books:</h3>
+
+<div class="grid">
+    {% for b in borrowed %}
+    <div class="card">
+        <h3>{{ b.book.title }}</h3>
+        <p>Author: {{ b.book.author }}</p>
+        <p>Borrowed on: {{ b.borrowed_at }}</p>
+    </div>
+    {% empty %}
+    <p>No books borrowed yet.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

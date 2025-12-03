@@ -1,0 +1,374 @@
+/* ---------- Global styles ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #ffe9f3 0, #f5f7ff 40%, #e4f6ff 70%, #fef6e4 100%);
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+
+/* Wrapper to center everything nicely */
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ---------- Header / Navbar ---------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff7ce5, #7b5cff, #33cfff);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Little floating book in logo */
+.logo-icon::before {
+    content: "📚";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float-book 2.2s ease-in-out infinite;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #222;
+}
+
+nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4c4c4c;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    background: rgba(123, 92, 255, 0.08);
+    color: #7b5cff;
+    transform: translateY(-1px);
+}
+
+/* ---------- Card layout ---------- */
+
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Login / dashboard card */
+.card {
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 18px;
+    padding: 1.8rem 1.6rem;
+    box-shadow: 0 18px 40px rgba(58, 72, 108, 0.18);
+    backdrop-filter: blur(12px);
+}
+
+/* Right side animated bookshelf card */
+.book-anim-card {
+    background: linear-gradient(145deg, #7b5cff, #33cfff);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---------- Login / forms ---------- */
+
+.card h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+}
+
+.login-card form,
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.3rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="search"] {
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(150, 150, 150, 0.4);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+input:focus {
+    border-color: #7b5cff;
+    box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+button[type="submit"],
+.button {
+    padding: 0.55rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #7b5cff, #33cfff);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: flex-start;
+    box-shadow: 0 10px 26px rgba(79, 99, 255, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+button[type="submit"]:hover,
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(79, 99, 255, 0.45);
+    filter: brightness(1.04);
+}
+
+button[type="submit"]:active,
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(79, 99, 255, 0.3);
+}
+
+.helper-link {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.helper-link a {
+    color: #7b5cff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.helper-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error message */
+.error {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: #ff4b6e;
+}
+
+/* ---------- Fancy animated bookshelf ---------- */
+
+.book-anim-card .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.book-anim-card .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1.4rem;
+}
+
+/* Shelves container */
+.bookshelf {
+    position: relative;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+/* Each shelf line */
+.shelf {
+    position: relative;
+    height: 80px;
+    border-radius: 999px;
+    background: rgba(5, 7, 29, 0.18);
+    display: flex;
+    align-items: flex-end;
+    padding: 0.6rem 1rem;
+    overflow: visible;
+}
+
+/* The wooden plank */
+.shelf::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 0.3rem;
+    height: 7px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #fdd6a7, #f4b87c);
+    box-shadow: 0 12px 20px rgba(9, 7, 43, 0.4);
+}
+
+/* Individual books */
+.book {
+    width: 26px;
+    height: 52px;
+    border-radius: 4px;
+    background: linear-gradient(145deg, #ff9fb8, #ff7ce5);
+    margin-right: 0.6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom center;
+    animation: sway 3.2s ease-in-out infinite;
+}
+
+/* Different colors for variety */
+.book:nth-child(2) {
+    background: linear-gradient(145deg, #8fd3ff, #33cfff);
+    animation-delay: 0.4s;
+}
+.book:nth-child(3) {
+    background: linear-gradient(145deg, #ffd37f, #ff9b3d);
+    animation-delay: 0.8s;
+}
+.book:nth-child(4) {
+    background: linear-gradient(145deg, #c3ff9e, #44d17a);
+    animation-delay: 1.2s;
+}
+.book:nth-child(5) {
+    background: linear-gradient(145deg, #d1b3ff, #8c6bff);
+    animation-delay: 1.6s;
+}
+
+/* Tiny label stripe */
+.book::before {
+    content: "";
+    width: 60%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 8px;
+}
+
+/* Little sparkles behind books */
+.sparkle {
+    position: absolute;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: sparkle-float 4s ease-in-out infinite;
+}
+
+.sparkle:nth-child(1) {
+    left: 10%;
+    top: 10%;
+    animation-delay: 0.2s;
+}
+sparkle:nth-child(2) {
+    left: 70%;
+    top: 35%;
+    animation-delay: 1s;
+}
+.sparkle:nth-child(3) {
+    left: 40%;
+    top: 70%;
+    animation-delay: 1.8s;
+}
+
+/* ---------- Table / list styling (for books & dashboard) ---------- */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+}
+
+.table th {
+    background: rgba(123, 92, 255, 0.08);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* ---------- Keyframe animations ---------- */
+
+@keyframes float-book {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes sway {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes sparkle-float {
+    0%   { transform: translateY(0); opacity: 0.3; }
+    50%  { transform: translateY(-10px); opacity: 0.9; }
+    100% { transform: translateY(0); opacity: 0.3; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        align-items: stretch;
+    }
+
+    .card,
+    .book-anim-card {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,12 @@
+{% extends "portal/base.html" %}
+
+{% block content %}
+{% if book %}
+<h2>You successfully borrowed {{ book.title }} ❤️</h2>
+<a class="btn" href="/dashboard/">Go to Dashboard</a>
+
+{% else %}
+<h2>❌ No copies available</h2>
+<a class="btn" href="/books/">Back to Books</a>
+{% endif %}
+{% endblock %}

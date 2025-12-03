@@ -1,0 +1,17 @@
+{% extends "myproject/base.html" %}
+
+{% block content %}
+<div class="card login-card">
+    <h2>Student Register</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Create Username" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p class="error">{{ msg }}</p>
+</div>
+{% endblock %}
