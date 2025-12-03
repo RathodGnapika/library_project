@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Portal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myproject/css/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <h2 class="logo">📚 Library Portal</h2>
+        <nav>
+            <a href="/dashboard/">Dashboard</a>
+            <a href="/books/">Books</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+{% block content %}
+{% endblock %}
+</div>
+
+</body>
+</html>

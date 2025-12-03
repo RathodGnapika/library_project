@@ -1,0 +1,18 @@
+{% extends "myproject/base.html" %}
+
+{% block content %}
+<h2>Available Books</h2>
+
+<div class="grid">
+    {% for b in books %}
+    <div class="card">
+        <h3>{{ b.title }}</h3>
+        <p>Author: {{ b.author }}</p>
+        <p>Copies left: {{ b.copies }}</p>
+
+        <a class="btn" href="/borrow/{{ b.id }}/">Borrow</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

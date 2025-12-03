@@ -1,0 +1,183 @@
+/* ------------------ Global Styling ------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f3ff, #e8fff7);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    padding: 25px;
+}
+
+
+/* ------------------ Navigation Bar ------------------ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 18px 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #322a5f;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #7c4dff, #00c9ff);
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+nav a {
+    margin-left: 18px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #4b4b4b;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #7c4dff;
+}
+
+
+/* ------------------ Main Layout ------------------ */
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 25px;
+}
+
+
+/* ------------------ Card Styling ------------------ */
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 26px;
+    color: #2b244d;
+}
+
+.input-box {
+    margin-bottom: 18px;
+}
+
+input {
+    width: 93%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+button {
+    background: linear-gradient(135deg,#7c4dff,#00c9ff);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 9px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* ------------------ Bookshelf Animation ------------------ */
+
+.book-anim-card .title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #322a5f;
+}
+
+.book-anim-card .subtitle {
+    font-size: 14px;
+    margin-bottom: 18px;
+    color: #6b6b6b;
+}
+
+.bookshelf {
+    margin-top: 20px;
+}
+
+.shelf {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.book {
+    width: 28px;
+    height: 75px;
+    background: linear-gradient(135deg, #ffb8d1, #ff88aa);
+    border-radius: 5px;
+    margin-right: 12px;
+    animation: floatBook 2.4s infinite alternate ease-in-out;
+}
+
+/* Different colors */
+.book:nth-child(2) { background: linear-gradient(135deg, #b8e0ff, #88c6ff); }
+.book:nth-child(3) { background: linear-gradient(135deg, #baffd9, #5affb0); }
+.book:nth-child(4) { background: linear-gradient(135deg, #ffe8a3, #ffcf4d); }
+.book:nth-child(5) { background: linear-gradient(135deg, #dab6ff, #c48cff); }
+
+@keyframes floatBook {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+
+/* ------------------ Links ------------------ */
+
+a {
+    color: #7c4dff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* ------------------ Responsive ------------------ */
+
+@media (max-width: 850px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
